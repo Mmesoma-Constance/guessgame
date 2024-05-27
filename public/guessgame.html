@@ -24,9 +24,9 @@
         <div class="flex justify-between">
           <button class="btn again bg-white text-black p-1 px-6">Again!</button>
           <p id="time"><span id="timer"></span><span>s</span></p>
-          <p class="text-sm" id="messages">(Between 1 and 50)</p>
+          <p class="text-xs" id="messages">(Between 1 and 50)</p>
         </div>
-        <h1 class="uppercase text-2xl font-bold pb-3 text-center pt-10">
+        <h1 class="uppercase text-2xl font-bold pb-3 text-center pt-20">
           Guess my Number!
         </h1>
 
@@ -45,14 +45,14 @@
         </p>
       </header>
 
-      <main class="flex justify-between mx-5 mt-10 items-center">
+      <main class="flex justify-between mx-4 mt-10 items-center">
         <section class="left pt-5 flex flex-col items-center">
           <input
             type="number"
-            class="guess border-2 border-white w-24 h-14 p-2 bg-transparent text-center font-bold text-2xl"
+            class="guess border-2 border-white w-20 h-14 p-2 bg-transparent text-center font-bold text-2xl"
           />
           <button
-            class="btn check confettiButton bg-white text-black p-1 mt-2 w-20 text-center font-press"
+            class="btn check confettiButton bg-white text-black p-1 mt-2 w-16 text-sm text-center font-press"
             onclick="check()"
           >
             Check!
@@ -74,7 +74,7 @@
           </audio>
         </section>
 
-        <section class="right text-lg flex flex-col items-center">
+        <section class="right flex flex-col items-center text-base pt-8">
           <p class="message font-semibold self-start">Start guessing...</p>
           <p class="label-score self-start">
             💯 Score: <span class="score">30</span>
