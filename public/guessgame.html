@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess My Number Game</title>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <!------------ <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>----->
+  </head>
+  <body
+    class="font-press text-white flex flex-col mx-3"
+    style="background-color: #222"
+  >
+    <div class="overflow-hidden my-5 font-mono">
+      <header class="">
+        <div class="flex justify-between">
+          <button class="btn again bg-white text-black p-1 px-6">Again!</button>
+          <p id="time"><span id="timer"></span><span>s</span></p>
+          <p class="text-sm" id="messages">(Between 1 and 50)</p>
+        </div>
+        <h1 class="uppercase text-2xl font-bold pb-3 text-center pt-10">
+          Guess my Number!
+        </h1>
+
+        <div
+          class="number bg-white text-black p-2 px-6 w-20 mt-4 h-12 mx-auto text-center font-bold text-2xl items-center"
+        >
+          ?
+        </div>
+
+        <p
+          class="text-center font-bold text-xl text-red-500 pt-4"
+          id="gameMaster"
+          style="display: none"
+        >
+          GAME MASTER!
+        </p>
+      </header>
+
+      <main class="flex justify-between mx-5 mt-10 items-center">
+        <section class="left pt-5 flex flex-col items-center">
+          <input
+            type="number"
+            class="guess border-2 border-white w-24 h-14 p-2 bg-transparent text-center font-bold text-2xl"
+          />
+          <button
+            class="btn check confettiButton bg-white text-black p-1 mt-2 w-20 text-center font-press"
+            onclick="check()"
+          >
+            Check!
+          </button>
+          <audio id="winAudio">
+            <source src="sound/Guess Game win sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="errorAudio">
+            <source src="sound/Guess Game error sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="overAudio">
+            <source src="sound/Guess Game over sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="victoryAudio">
+            <source src="sound/Guess Game master sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="warningAudio">
+            <source src="sound/Guess Game warning sound.mp3" type="audio/mp3" />
+          </audio>
+        </section>
+
+        <section class="right text-lg flex flex-col items-center">
+          <p class="message font-semibold self-start">Start guessing...</p>
+          <p class="label-score self-start">
+            💯 Score: <span class="score">30</span>
+          </p>
+          <p class="self-start label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+          <p class="self-start label-timeScore">
+            ⏳ Timescore: <span id="timeScore">0:00</span>
+          </p>
+          <div
+            class="flex flex-row gap-4 text-sm items-center justify-center pt-2"
+          >
+            <p class="label-wins">Wins: <span class="wins">0</span></p>
+            <p class="label-losses">Losses: <span class="losses">0</span></p>
+          </div>
+
+          <button
+            class="btn reset bg-red-500 text-center text-sm mt-3 p-0.5 shadow-lg"
+            style="width: 140px"
+          >
+            Reset score
+          </button>
+        </section>
+      </main>
+
+      <!-------------------------->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1"></script>
+    <script src="guessgame.js"></script>
+  </body>
+</html>

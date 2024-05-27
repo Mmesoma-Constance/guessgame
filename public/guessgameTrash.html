@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Game</title>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <!------------ <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>----->
+  </head>
+  <body
+    class="font-press text-white flex flex-col mx-3"
+    style="background-color: #222"
+  >
+    <div class="overflow-hidden my-5">
+      <header class="">
+        <div class="flex justify-between">
+          <button class="btn again bg-white text-black p-1 px-6">Again!</button>
+          <p class="text-sm" id="messages">(Between 1 and 20)</p>
+
+          <div class="dropdown w-20 right-0 text-sm">
+            <button class="btn dropbtn bg-white text-black p-1 w-full">
+              Easy
+            </button>
+
+            <div class="dropdown-content w-full text-center">
+              <a href="#" id="easy">Easy</a>
+              <hr />
+              <a href="#" id="medium" onclick="startTime()">Medium</a>
+              <hr />
+              <a href="#" id="hard">Hard</a>
+            </div>
+          </div>
+        </div>
+        <h1
+          class="uppercase text-2xl font-bold pb-3 text-center pt-10 font-press"
+        >
+          Guess my Number!
+        </h1>
+
+        <div
+          class="number bg-white text-black p-2 px-6 w-20 mt-4 h-12 mx-auto text-center font-bold text-2xl items-center"
+        >
+          ?
+        </div>
+      </header>
+
+      <main class="flex justify-between mx-5 mt-10 items-center">
+        <section class="left pt-5 flex flex-col items-center">
+          <input
+            type="number"
+            class="guess border-2 border-white w-24 h-14 p-2 bg-transparent text-center font-bold text-2xl"
+          />
+          <button
+            class="btn check bg-white text-black p-1 mt-2 w-20 text-center font-press"
+            onclick="check()"
+          >
+            Check!
+          </button>
+          <audio id="winAudio">
+            <source src="sound/Guess Game win sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="errorAudio">
+            <source src="sound/Guess Game error sound.mp3" type="audio/mp3" />
+          </audio>
+          <audio id="overAudio">
+            <source src="sound/Guess Game over sound.mp3" type="audio/mp3" />
+          </audio>
+        </section>
+
+        <section class="right text-lg">
+          <p id="time"><span id="timer">0:30</span><span>s</span></p>
+          <p class="message">Start guessing...</p>
+          <p class="label-score">💯 Score: <span class="score">20</span></p>
+          <p class="label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+          <div
+            class="flex flex-row gap-4 text-sm items-center justify-center pt-2"
+          >
+            <p class="label-wins">Wins: <span class="wins">0</span></p>
+            <p class="label-losses">Losses: <span class="losses">0</span></p>
+          </div>
+          <button
+            class="btn reset bg-red-500 text-center text-white flex mx-auto p-0.5 mt-2 text-sm px-6"
+            style="width: 140px; text-align: center"
+          >
+            Reset score
+          </button>
+        </section>
+      </main>
+
+      <!-------------------------->
+    </div>
+
+    <script src="guessgame.js"></script>
+  </body>
+</html>

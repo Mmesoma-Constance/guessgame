@@ -1,0 +1,166 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess My Number Game</title>
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .intro-container {
+        text-align: center;
+      }
+
+      .game-rules {
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      @keyframes moveUp {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50px);
+        }
+      }
+
+      .animate-up {
+        animation: moveUp 1s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .fadeIn {
+        animation: fadeIn 1s ease forwards;
+      }
+    </style>
+
+    <!-- <script>
+      soundManager.setup({
+        url: "path/to/swf-files",
+        flashVersion: 9,
+        useFlash: true,
+      });
+    </script> -->
+  </head>
+  <body class="bg-black text-white font-mono">
+    <div class="relative">
+      <img
+        src="sound/gameimage (1).jpg"
+        alt=""
+        class="w-full h-full object-fit"
+      />
+    </div>
+    <div class="absolute z-10 text-white w-full h-full bg-opacity-50 bg-black">
+      <!-------- <audio id="startingAudio">
+        <source
+          src="sound/Guess Game starting sound.mp3"
+          type="audio/mp3"
+          loop
+        />
+      </audio>--->
+      <div class="intro-container mt-20">
+        <div class="intro-text" id="introText">
+          <h1 class="font-extrabold" style="font-size: 27px">
+            Guess My Number Game
+          </h1>
+        </div>
+        <div class="game-rules text-lg" id="gameRules">
+          <p class="text-lg font-semibold underline">Game Rules</p>
+          <ul class="flex flex-col gap-4 mx-5 justify-center text-center">
+            <li class="text-base text-left md:text-center">
+              <span class="font-bold uppercase">Objective : </span>
+              <span class=""
+                >Your objective is to guess the secret number chosen by the
+                game.
+              </span>
+            </li>
+            <li class="text-base text-left md:text-center">
+              <span class="font-bold uppercase">Gameplay : </span>
+              <span class=""
+                >- The game randomly select a secret number between 1 and 50.
+              </span>
+              <br />
+              <span class=""
+                >- You have a limited time to guess the secret number correctly.
+              </span>
+              <br />
+              <span class=""
+                >- After each guess, you can click the "Again!" button to
+                continue your attempts to guess the secret number.
+              </span>
+            </li>
+            <li class="text-base text-left md:text-center">
+              <span class="font-bold uppercase">Winnig : </span>
+              <span class=""
+                >To win the game, you need to achieve 3 wins before the time
+                runs out, and be crowned "Game Master".
+              </span>
+            </li>
+
+            <li class="text-base text-left md:text-center">
+              <span class="font-bold uppercase">Have Fun : </span>
+              <span class=""
+                >Enjoy the challenge and excitement of trying to guess the
+                secret number against the clock!
+              </span>
+            </li>
+          </ul>
+          <div class="mt-5">
+            <a href="guessgame.html"
+              ><button id="playButton" class="w-44 text-center text-base">
+                Play
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //  soundManager.play("sound", "Guess Game starting sound.mp3");
+      // let startingAudio = document.getElementById("startingAudio");
+      // startingAudio.play();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          var introText = document.getElementById("introText");
+          var gameRules = document.getElementById("gameRules");
+
+          introText.classList.add("hide");
+
+          introText.classList.add("animate-up");
+
+          setTimeout(function () {
+            gameRules.style.display = "block";
+            gameRules.classList.add("fadeIn");
+          }, 500); // Adjust timing if needed
+        }, 1000); // Adjust timing if needed
+      });
+    </script>
+  </body>
+</html>
