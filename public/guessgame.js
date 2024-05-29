@@ -6,8 +6,12 @@ document.querySelector(".guess").focus();
 const message = document.querySelector(".message");
 
 let score = 30; // ;
-let highscore = 0;
-let timeScore = 0;
+
+let highscore = JSON.parse(localStorage.getItem("highscore")) || 0;
+document.querySelector(".highscore").textContent = highscore;
+
+let timeScore = localStorage.getItem("timeScore") || 0;
+document.getElementById("timeScore").textContent = `0:${timeScore}s`;
 
 let wins = 0;
 let losses = 0;
@@ -142,8 +146,10 @@ function check() {
       clearInterval(countdown);
       if (timer > timeScore || score > highscore) {
         timeScore = timer;
+        localStorage.setItem("timeScore", timeScore);
         document.getElementById("timeScore").textContent = `0:${timeScore}s`;
         highscore = score;
+        localStorage.setItem("highscore", JSON.stringify(highscore));
         document.querySelector(".highscore").textContent = highscore;
       }
       warningAudio.pause();
@@ -154,6 +160,10 @@ function check() {
     }
   } else if (guess !== randomNumber) {
     losses++;
+    setTimeout(function () {
+      document.querySelector(".guess").value = "";
+    }, 500);
+    document.querySelector(".guess").focus();
     document.querySelector(".losses").textContent = losses;
     let errorAudio = document.getElementById("errorAudio");
     errorAudio.play();
@@ -189,7 +199,7 @@ const againBtn = document
   .querySelector(".again")
   .addEventListener("click", function () {
     randomNumber = Math.trunc(Math.random() * 50) + 1;
-
+    console.log(randomNumber);
     document.querySelector(".guess").disabled = false;
     document.querySelector(".guess").focus();
     checkBtn.disabled = false;
